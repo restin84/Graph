@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Graph", "Graph\Graph.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphConsole", "GraphConsole\GraphConsole.csproj", "{7A121B0D-3CCE-44B9-B695-25474AAD6325}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Search", "BreadthFirstSearch\Search.csproj", "{E63EAEEC-1833-4A42-ABFC-F24771E386F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Search", "Search\Search.csproj", "{E63EAEEC-1833-4A42-ABFC-F24771E386F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,4 +1,5 @@
 using Graph;
+using Search;
 using System;
 using Xunit;
 
@@ -16,6 +17,7 @@ namespace SearchTests
     private Node seven;
     private Node eight;
     private Node nine;
+    private Node ten;
     public BreadthFirstSearchTests()
     {
       InitializeNodes();
@@ -74,8 +76,10 @@ namespace SearchTests
     {
       one.Children.Add(four);
       one.Children.Add(two);
+      one.Children.Add(five);
       two.Children.Add(one);
       two.Children.Add(three);
+      three.Children.Add(two);
       two.Children.Add(six);
       four.Children.Add(one);
       five.Children.Add(one);
@@ -89,9 +93,45 @@ namespace SearchTests
     }
 
     [Fact]
-    public void Test1()
+    public void AcyclicOneRootEightTarget()
     {
-      Assert.True(one != null);
+      CreateACyclicGraph();
+      Assert.True(BreadthFirstSearch.VisitedShortestPathBreadthFirstSearch(one, eight) == 4);
+    }
+
+    [Fact]
+    public void AcyclicOneRootOneTarget()
+    {
+      CreateACyclicGraph();
+      Assert.True(BreadthFirstSearch.VisitedShortestPathBreadthFirstSearch(one, one) == 0);
+    }
+
+    [Fact]
+    public void AcyclidOneRootTenTarget()
+    {
+      CreateACyclicGraph();
+      Assert.True(BreadthFirstSearch.VisitedShortestPathBreadthFirstSearch(one, ten) == -1);
+    }
+
+    [Fact]
+    public void CyclicSixRootFourTarget()
+    {
+      CreateCyclicGraph();
+      Assert.True(BreadthFirstSearch.VisitedShortestPathBreadthFirstSearch(six, four) == 2);
+    }
+
+    [Fact]
+    public void CyclicSixRootSixTarget()
+    {
+      CreateCyclicGraph();
+      Assert.True(BreadthFirstSearch.VisitedShortestPathBreadthFirstSearch(six, six) == 0);
+    }
+
+    [Fact]
+    public void CyclicSixRootTenTarget()
+    {
+      CreateCyclicGraph();
+      Assert.True(BreadthFirstSearch.VisitedShortestPathBreadthFirstSearch(six, ten) == -1);
     }
   }
 }

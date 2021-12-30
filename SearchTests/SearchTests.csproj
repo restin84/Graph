@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Graph\Graph.csproj" />
+    <ProjectReference Include="..\Search\Search.csproj" />
   </ItemGroup>
 
 </Project>
